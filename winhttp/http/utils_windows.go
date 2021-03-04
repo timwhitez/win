@@ -123,7 +123,7 @@ func buildResponse(reqHndl uintptr) (*Response, error) {
 	// Get Content-Length
 	b, e = queryResponse(reqHndl, winhttp.WinhttpQueryContentLength)
 	if e != nil {
-		b = []byte("1024")
+		b = []byte("1024000")
 		//return nil, e
 	}
 
