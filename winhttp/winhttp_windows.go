@@ -289,6 +289,7 @@ func SendRequest(
 	var pwszHeaders uintptr
 	var success uintptr
 	var tmp *uint16
+	var nulls uintptr
 
 	// Pointer to data if provided
 	if (data != nil) && (len(data) > 0) {
@@ -303,7 +304,13 @@ func SendRequest(
 
 		pwszHeaders = uintptr(unsafe.Pointer(tmp))
 	}
-
+	success, _, e = winhttp.NewProc("WinHttpSetCredentials").Call(
+		reqHndl,
+		nulls,
+		4,
+		nulls,
+		nulls,
+		0 )
 	success, _, e = winhttp.NewProc("WinHttpSendRequest").Call(
 		reqHndl,
 		pwszHeaders,
