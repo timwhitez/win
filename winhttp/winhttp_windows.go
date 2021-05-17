@@ -289,7 +289,6 @@ func SendRequest(
 	var pwszHeaders uintptr
 	var success uintptr
 	var tmp *uint16
-	var nulls uintptr
 
 	// Pointer to data if provided
 	if (data != nil) && (len(data) > 0) {
