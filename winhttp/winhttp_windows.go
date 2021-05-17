@@ -304,13 +304,6 @@ func SendRequest(
 
 		pwszHeaders = uintptr(unsafe.Pointer(tmp))
 	}
-	success, _, e = winhttp.NewProc("WinHttpSetCredentials").Call(
-		reqHndl,
-		nulls,
-		4,
-		nulls,
-		nulls,
-		0 )
 	success, _, e = winhttp.NewProc("WinHttpSendRequest").Call(
 		reqHndl,
 		pwszHeaders,
